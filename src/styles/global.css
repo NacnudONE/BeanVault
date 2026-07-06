@@ -1,0 +1,196 @@
+@import './variables.css';
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+input, textarea, select, button { font-family: inherit; }
+
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--accent-dark); border-radius: 3px; }
+
+/* ── Animations ───────────────────────────────────────────── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(22px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Grid layouts ─────────────────────────────────────────── */
+.bv-featured  { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; }
+.bv-shop-l    { display: grid; grid-template-columns: 248px 1fr; gap: 36px; align-items: start; }
+.bv-pgrid     { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.bv-detail    { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: start; }
+.bv-related   { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+.bv-blog-l    { display: grid; grid-template-columns: 1fr 272px; gap: 36px; align-items: start; }
+.bv-bgrid     { display: grid; grid-template-columns: repeat(2, 1fr); gap: 26px; }
+.bv-team      { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; }
+.bv-tline     { display: grid; grid-template-columns: repeat(4, 1fr); }
+.bv-vals      { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+.bv-foot      { display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px; }
+.bv-stats     { display: grid; grid-template-columns: repeat(4, 1fr); }
+.bv-proc      { display: grid; grid-template-columns: repeat(3, 1fr); }
+.bv-contact   { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; }
+.bv-cart-l    { display: grid; grid-template-columns: 1fr 356px; gap: 34px; align-items: start; }
+.bv-check-l   { display: grid; grid-template-columns: 1fr 334px; gap: 34px; align-items: start; }
+.bv-insta     { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3px; }
+
+/* ── Media queries ────────────────────────────────────────── */
+@media (max-width: 1100px) {
+  .bv-featured  { grid-template-columns: repeat(2, 1fr); }
+  .bv-related   { grid-template-columns: repeat(2, 1fr); }
+  .bv-foot      { grid-template-columns: repeat(2, 1fr); gap: 32px; }
+  .bv-tline     { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 880px) {
+  .bv-shop-l, .bv-detail, .bv-blog-l, .bv-contact, .bv-cart-l, .bv-check-l { grid-template-columns: 1fr; }
+  .bv-team, .bv-vals, .bv-proc { grid-template-columns: 1fr; }
+  .bv-stats { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 640px) {
+  .bv-pgrid, .bv-featured, .bv-bgrid { grid-template-columns: 1fr; }
+  .bv-foot { grid-template-columns: 1fr; }
+}
+
+/* ── Reusable button styles ───────────────────────────────── */
+.bv-btn-primary {
+  display: inline-block;
+  padding: 15px 44px;
+  background: var(--accent);
+  color: var(--text);
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  transition: all 0.2s;
+  border-radius: 1px;
+  white-space: nowrap;
+}
+.bv-btn-primary:hover {
+  background: var(--accent-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(212, 99, 29, 0.35);
+}
+
+.bv-btn-outline {
+  display: inline-block;
+  padding: 15px 44px;
+  background: transparent;
+  color: var(--text);
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 500;
+  border: 1px solid rgba(245, 230, 211, 0.35);
+  cursor: pointer;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  transition: all 0.2s;
+  border-radius: 1px;
+  white-space: nowrap;
+}
+.bv-btn-outline:hover {
+  border-color: var(--text);
+  transform: translateY(-2px);
+}
+
+.bv-btn-sm {
+  padding: 13px 40px;
+  background: transparent;
+  border: 1px solid var(--border-mid);
+  color: var(--text-muted);
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.bv-btn-sm:hover { border-color: var(--accent); color: var(--accent); }
+
+.bv-btn-ghost {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: var(--text-muted);
+  font-family: var(--font-sans);
+  transition: color 0.2s;
+}
+.bv-btn-ghost:hover { color: var(--accent); }
+
+/* ── Card hover ───────────────────────────────────────────── */
+.bv-card {
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+.bv-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 52px rgba(0, 0, 0, 0.55);
+}
+
+/* ── Nav link ─────────────────────────────────────────────── */
+.bv-nav-link {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-muted);
+  cursor: pointer;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  transition: color 0.2s;
+  text-decoration: none;
+  background: none;
+  border: none;
+}
+.bv-nav-link:hover,
+.bv-nav-link.active { color: var(--accent); }
+
+/* ── Icon button ──────────────────────────────────────────── */
+.bv-icon-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.2s;
+}
+.bv-icon-btn:hover { opacity: 0.75; }
+
+/* ── Section label ────────────────────────────────────────── */
+.bv-label {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 10px;
+}
+
+/* ── Placeholder image block ──────────────────────────────── */
+.bv-img-placeholder {
+  position: absolute;
+  inset: 0;
+  background-image: repeating-linear-gradient(
+    45deg,
+    rgba(60, 26, 11, 0.12) 0,
+    rgba(60, 26, 11, 0.12) 1px,
+    transparent 1px,
+    transparent 10px
+  );
+  background-size: 10px 10px;
+}
