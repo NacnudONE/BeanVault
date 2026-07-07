@@ -1,32 +1,77 @@
-# React + TypeScript + Vite
+# BeanVault ☕
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Інтернет-магазин кави побудований на React + TypeScript + Vite. Повноцінний e-commerce з каталогом товарів, кошиком, оформленням замовлення, блогом і сторінкою «Про нас».
 
-Currently, two official plugins are available:
+**Live:** https://nacnudone.github.io/BeanVault/
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## Стек технологій
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+| Категорія    | Технологія                         |
+|--------------|------------------------------------|
+| UI           | React 19, TypeScript               |
+| Роутинг      | React Router v7                    |
+| Збірка       | Vite 8                             |
+| Тестування   | Vitest, Testing Library            |
+| Лінтер       | Oxlint                             |
+| Deploy       | GitHub Pages (gh-pages)            |
 
-## Expanding the Oxlint configuration
+---
 
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
+## Функціонал
 
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
+- Каталог товарів з фільтрацією та детальними сторінками
+- Кошик з управлінням кількістю та збереженням стану (Context API)
+- Оформлення замовлення (Checkout)
+- Блог з окремими статтями
+- Сторінка «Про нас» з командою, таймлайном та цінностями
+- Контактна форма
+- Toast-сповіщення
+- Кнопка «Back to Top»
+
+---
+
+## Запуск
+
+```bash
+npm install
+npm run dev
 ```
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+| Команда         | Дія                              |
+|-----------------|----------------------------------|
+| `npm run dev`   | Dev-сервер (HMR)                 |
+| `npm run build` | Продакшн-збірка                  |
+| `npm run test`  | Тести у watch-режимі             |
+| `npm run test:run` | Тести одноразово              |
+| `npm run lint`  | Oxlint перевірка                 |
+| `npm run deploy`| Збірка + публікація на gh-pages  |
+
+---
+
+## Структура
+
+```
+src/
+├── components/   # Header, Footer, ProductCard, Toast …
+├── pages/        # Home, Shop, Cart, Checkout, About, Blog, Contact …
+├── context/      # CartContext, ToastContext
+├── data/         # Статичні дані (products, blog, team …)
+├── hooks/        # useScrollState
+└── __tests__/    # Unit-тести
+```
+
+---
+
+## Contributors
+
+| Аватар | Ім'я | Роль |
+|--------|------|------|
+| [![Denis Kobilasnij](https://github.com/NacnudONE.png?size=60)](https://github.com/NacnudONE) | **Denis Kobilasnij** | Author & Developer |
+
+---
+
+## Ліцензія
+
+MIT
