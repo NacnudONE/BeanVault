@@ -64,14 +64,6 @@ src/
 
 ---
 
-## Contributors
-
-| Аватар | Ім'я | Роль |
-|--------|------|------|
-| [![Denis Kobilasnij](https://github.com/NacnudONE.png?size=60)](https://github.com/NacnudONE) | **Denis Kobilasnij** | Author & Developer |
-
----
-
 ## Ліцензія
 
 MIT
